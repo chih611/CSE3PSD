@@ -7,36 +7,45 @@ using namespace std;
 
 int main()
 {
-    string myText;
-    vector<string> arr;
-    vector<string> arr2;
+    string content;
+    vector<string> eachLineContainer;
 
-    ifstream MyReadFile("../../sample_and_input_files/aoc1_sample.txt");
+    ifstream MyReadFile("../../sample_and_input_files/aoc1_input.txt");
 
-    while (getline(MyReadFile, myText))
+    while (getline(MyReadFile, content))
     {
-        arr.push_back(myText);
+        eachLineContainer.push_back(content);
     }
-    for (string i : arr)
+    for (string i : eachLineContainer)
     {
-        arr2.push_back(i);
-    }
-    for (int i = 0; i < sizeof(arr2); i++)
-    {
-        string line = arr2[i];
+        string line = i;
 
-        for (int j = 0; j <= line.length(); j++)
+        if (line != "")
         {
-            char charPerLine = line[j];
-
-            if (iswalpha(charPerLine))
+            for (int j = 0; j < line.length(); j++)
             {
-                line.erase(j, 1);
-                j = j--;
+                char charPerLine = line[j];
+
+                if (iswalpha(charPerLine))
+                {
+                    line.erase(j, 1);
+                    j = j--;
+                }
             }
+        }
+
+        if (line.length() > 2)
+        {
+            for (int j = 0; j < line.length(); j++)
+            {
+                int numLine = line[j];
+                line.erase(j + 1, line.length() - 2);
+            }
+        }
+        if (line.length() == 1)
+        {
+            line.append(line);
         }
         cout << line << endl;
     }
-
-    return 0;
 }
