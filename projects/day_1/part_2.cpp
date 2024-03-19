@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <numeric>
+
 using namespace std;
 
 string combindFirstEndDigit(string (&holder)[100])
@@ -54,6 +56,7 @@ int main()
     string digit = "0";
     string number;
     string blank;
+    vector<int> resultInt;
 
     ifstream MyReadFile("../../sample_and_input_files/aoc1_input.txt");
 
@@ -144,7 +147,8 @@ int main()
             }
         }
         result = combindFirstEndDigit(holder);
-        cout << result << endl;
+        resultInt.push_back(stoi(result));
     }
+    cout << accumulate(resultInt.begin(), resultInt.end(), 0);
     MyReadFile.close();
 }

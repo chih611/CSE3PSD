@@ -3,14 +3,17 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <numeric>
+
 using namespace std;
 
 int main()
 {
     string content;
     vector<string> eachLineContainer;
+    vector<int> resultInt;
 
-    ifstream MyReadFile("../../sample_and_input_files/aoc1_input.txt");
+    ifstream MyReadFile("../../sample_and_input_files/aoc1_sample.txt");
 
     while (getline(MyReadFile, content))
     {
@@ -46,7 +49,9 @@ int main()
         {
             line.append(line);
         }
-        cout << line << endl;
+        resultInt.push_back(stoi(line));
+        // cout << line << endl;
     }
+    cout << accumulate(resultInt.begin(), resultInt.end(), 0);
     MyReadFile.close();
 }
