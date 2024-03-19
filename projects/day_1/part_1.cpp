@@ -48,4 +48,5 @@ int main()
         }
         cout << line << endl;
     }
+    MyReadFile.close();
 }
