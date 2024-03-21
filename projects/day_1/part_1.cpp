@@ -13,7 +13,7 @@ int main()
     vector<string> eachLineContainer;
     vector<int> resultInt;
 
-    ifstream MyReadFile("../../sample_and_input_files/aoc1_sample.txt");
+    ifstream MyReadFile("../../sample_and_input_files/aoc1_input.txt");
 
     while (getline(MyReadFile, content))
     {
